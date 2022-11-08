@@ -45,8 +45,8 @@ app.get("/api/:date?", function(req, res) {
     utc: utc
   });
   } else{
-   if(req.url == /api/){
-     let fecha2 = new Date();
+if(req.params.date == undefined ) {
+    let fecha2 = new Date();
      let unix2 = Date.parse(fecha2);
      let utc2 =  fecha2.toUTCString();
      res.json({
