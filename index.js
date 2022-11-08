@@ -38,7 +38,16 @@ app.get("/api/:date?", function(req, res) {
   const validateDate = (date) => isNaN(Date.parse(date));
   var date = req.params.date;
 
-  console.log(req.url)  
+  console.log(req.url)  if(req.params.date == 'timestamp') {
+    let fecha2 = new Date();
+     let unix2 = Date.parse(fecha2);
+     let utc2 =  fecha2.toUTCString();
+  console.log(req.params.date_string);
+     res.json({
+       unix: unix2,
+       utc: utc2
+     })
+  }
  if(validateDate(date) === false){
     res.json({
     unix: unix,
